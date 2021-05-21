@@ -8,7 +8,7 @@ const JobsContextProvider = (props) => {
     const [jobs,setJobs]=useState([]);
     useEffect(()=>{
         const canceltoken = axios.CancelToken.source();
-        axios.get('https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json',{canceltoken:canceltoken.token}).then(res=>{
+        axios.get('https://jobs.github.com/positions.json',{canceltoken:canceltoken.token}).then(res=>{
             setJobs(res.data);
         }).catch(err=>{
             if(axios.isCancel(err)){
